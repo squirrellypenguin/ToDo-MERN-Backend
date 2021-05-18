@@ -24,7 +24,7 @@ router.get("/seed", async (req, res) => {
     // add the seed data to the database
     await Todo.create(todoSeed);
     // get full list of places to confirm seeding worked
-    const todos = await Place.find({});
+    const todos = await Todo.find({});
     // return full list of places as JSON
     res.json(todos);
   } catch (error) {

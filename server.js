@@ -23,7 +23,7 @@ const todoRouter = require("./controllers/Todo");
 ////////////
 //MIDDLEWARE
 ////////////
-// NODE_ENV === "production" ? app.use(cors(corsOptions)) : app.use(cors());
+//let NODE_ENV === "production" ? app.use(cors(corsOptions)) : app.use(cors());
 app.use(express.json());
 app.use(morgan("tiny")); //logging
 app.use(cors())
@@ -33,7 +33,7 @@ app.use(cors())
 
 //Route for testing server is working
 app.get("/", (req, res) => {
-  res.json({ hello: "Hello World!" });
+  res.json({ hello: "Servering" });
 });
 
 // Dog Routes send to dog router
