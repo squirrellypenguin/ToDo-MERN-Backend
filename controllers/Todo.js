@@ -24,9 +24,9 @@ router.get("/seed", async (req, res) => {
     // add the seed data to the database
     await Todo.create(todoSeed);
     // get full list of places to confirm seeding worked
-    const todo = await Todo.find({});
+    const todos = await Todo.find({});
     // return full list of places as JSON
-    res.json(todo);
+    res.json(todos);
   } catch (error) {
     // return error as JSON with an error status
     res.status(400).json(error);
@@ -35,11 +35,13 @@ router.get("/seed", async (req, res) => {
 
 //GET Route for ALL 
 router.get("/", async (req, res) => {
+  try {
   res.json(await Todo.find({}));
-  catch (error) {
-    // return error as JSON with an error status
-    res.status(400).json(error);
-  }
+}
+catch (error) {
+  // return error as JSON with an error status
+  res.status(400).json(error);
+}
 });
 
 // CREATE Route
