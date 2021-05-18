@@ -3,13 +3,13 @@ require("dotenv").config();
 
 //GET PORT FROM ENV VARIABLES
 const PORT = process.env.PORT;
-
+const cors = require("cors");
+const corsOptions = require("./configs/cors.js");
 // IMPORT DEPENDENCIES
 //MONGO CONNECTION
 const mongoose = require("./db/connection");
 
 //CORS
-const cors = require("cors");
 // const corsOptions = require("./configs/cors.js");
 
 //Bringing in Express
@@ -23,6 +23,7 @@ const todoRouter = require("./controllers/Todo");
 ////////////
 //MIDDLEWARE
 ////////////
+const NODE_ENV = "production" 
 NODE_ENV === "production" ? app.use(cors(corsOptions)) : app.use(cors());
 app.use(express.json());
 app.use(morgan("tiny")); //logging
