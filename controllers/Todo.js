@@ -36,6 +36,10 @@ router.get("/seed", async (req, res) => {
 //GET Route for ALL 
 router.get("/", async (req, res) => {
   res.json(await Todo.find({}));
+  catch (error) {
+    // return error as JSON with an error status
+    res.status(400).json(error);
+  }
 });
 
 // CREATE Route
