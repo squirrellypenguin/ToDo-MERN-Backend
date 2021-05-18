@@ -5,13 +5,13 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 
 // PULL OUT ENVIRONMENTAL VARIABLE FROM PROCESS.ENV OBJECT
-const MONGODBURI = process.env.MONGODBURI;
+const MONGODB_URI = process.env.MONGODB_URI;
 
 // Optional Configuration Object to Remove Mongo Deprecation Warnings
 const config = { useUnifiedTopology: true, useNewUrlParser: true };
 
 //Establish Connection to Database
-mongoose.connect(MONGODBURI, config);
+mongoose.connect(MONGODB_URI, config);
 
 // Create Database Connection message for Open, Close, Error
 mongoose.connection
