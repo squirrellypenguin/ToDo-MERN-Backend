@@ -23,6 +23,7 @@ const todoRouter = require("./controllers/Todo");
 ////////////
 //MIDDLEWARE
 ////////////
+const NODE_ENV = "production"
 NODE_ENV === "production" ? app.use(cors(corsOptions)) : app.use(cors());
 app.use(express.json());
 app.use(morgan("tiny")); //logging
